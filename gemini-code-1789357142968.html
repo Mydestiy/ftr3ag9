@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài Kiểm Tra Tiếng Anh Tương Tác - Ms Lê Hằng English</title>
+  <!-- Google Fonts: Poster Style (Fredoka & Paytone One) -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Paytone+One&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-pink: #ff6b8b;
+      --primary-pink-dark: #d84315;
+      --pastel-pink-bg: #fff0f5;
+      --pastel-purple-hl: #a855f7;
+      --accent-green: #00d26a;
+      --accent-red: #ff4757;
+      --accent-yellow: #fdcb6e;
+      --bg-gradient-1: #ffb6c1;
+      --bg-gradient-2: #ff80bf;
+      --bg-gradient-3: #a855f7;
+      --bg-gradient-4: #fda4af;
+      --card-bg: rgba(255, 255, 255, 0.97);
+      --card-shadow: 0 12px 28px rgba(0,0,0,0.12);
+      --btn-shadow: 0 6px 0px rgba(0,0,0,0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    ::selection {
+      background-color: var(--pastel-purple-hl) !important;
+      color: #ffffff !important;
+    }
+
+    body {
+      font-family: 'Fredoka', 'Quicksand', sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(-45deg, var(--bg-gradient-1), var(--bg-gradient-2), var(--bg-gradient-3), var(--bg-gradient-4));
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.25) 15%, transparent 15%), 
+                        url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='10' y='30' font-size='22'%3E📚%3C/text%3E%3Ctext x='70' y='85' font-size='22'%3E🦁%3C/text%3E%3Ctext x='80' y='30' font-size='20'%3E🌸%3C/text%3E%3Ctext x='15' y='95' font-size='20'%3E⭐%3C/text%3E%3Ctext x='45' y='60' font-size='18'%3E🏫%3C/text%3E%3C/svg%3E");
+      color: #2d3436;
+      overflow: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+      z-index: 100;
+      border-bottom: 4px solid #ffb6c1;
+    }
+
+    .brand-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff0f5;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 3px solid #ffb6c1;
+      box-shadow: var(--btn-shadow);
+    }
+
+    .brand-badge h1 {
+      font-family: 'Paytone One', sans-serif;
+      font-size: 1rem;
+      color: #ff3366;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .timer-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      padding: 6px 14px;
+      border-radius: 22px;
+      border: 3px solid var(--primary-pink);
+      box-shadow: var(--btn-shadow);
+    }
+
+    .timer-display {
+      font-family: 'Paytone One', sans-serif;
+      font-size: 1.2rem;
+      color: #ff3366;
+      min-width: 55px;
+      text-align: center;
+    }
+
+    .btn-gamified {
+      font-family: 'Paytone One', 'Fredoka', sans-serif;
+      background: var(--primary-pink);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 16px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      box-shadow: var(--btn-shadow);
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-gamified:hover {
+      transform: translateY(-3px);
+      background: #ff4757;
+    }
+
+    .btn-gamified:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0px rgba(0,0,0,0.15);
+    }
+
+    .btn-submit-main {
+      background: var(--accent-green);
+    }
+
+    .progress-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 150px;
+    }
+
+    .progress-bar-bg {
+      flex: 1;
+      height: 14px;
+      background: #e2e8f0;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 2px solid #fff;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #fdcb6e, #00d26a);
+      transition: width 0.4s ease;
+    }
+
+    .progress-text {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #475569;
+    }
+
+    .passage-tabs {
+      display: flex;
+      gap: 6px;
+      background: rgba(255,255,255,0.9);
+      padding: 5px;
+      border-radius: 16px;
+    }
+
+    .tab-btn {
+      font-family: 'Fredoka', sans-serif;
+      padding: 6px 14px;
+      border: none;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      background: transparent;
+      color: #64748b;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background: #ffffff;
+      color: #ff3366;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+    }
+
+    .main-container {
+      flex: 1;
+      display: flex;
+      gap: 18px;
+      padding: 18px;
+      overflow: hidden;
+    }
+
+    .split-pane {
+      flex: 1;
+      background: var(--card-bg);
+      border-radius: 24px;
+      padding: 22px;
+      overflow-y: auto;
+      box-shadow: var(--card-shadow);
+      border: 4px solid rgba(255, 255, 255, 0.95);
+      position: relative;
+    }
+
+    .passage-title {
+      font-family: 'Paytone One', cursive, sans-serif;
+      font-size: 1.25rem;
+      color: #ff3366;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 4px dashed #ffb6c1;
+      letter-spacing: 0.5px;
+    }
+
+    .paragraph-block {
+      margin-bottom: 18px;
+      background: #ffffff;
+      padding: 16px;
+      border-radius: 18px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+      border-left: 5px solid var(--primary-pink);
+    }
+
+    .paragraph-text {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #1e293b;
+      margin-bottom: 10px;
+    }
+
+    .translate-btn {
+      font-family: 'Fredoka', sans-serif;
+      background: #f0f3ff;
+      color: #4f46e5;
+      border: 2px solid #c7d2fe;
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .translate-btn:hover {
+      background: #e0e7ff;
+    }
+
+    .translation-content {
+      display: none;
+      margin-top: 10px;
+      padding: 12px;
+      background: #f8fafc;
+      border-radius: 12px;
+      border-left: 4px solid #6366f1;
+      font-size: 0.95rem;
+      color: #334155;
+      line-height: 1.7;
+    }
+
+    .translation-content.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .evidence-highlight {
+      background-color: #fef08a !important;
+      color: #000 !important;
+      box-shadow: 0 0 12px #fde047;
+      border-radius: 6px;
+      padding: 2px 6px;
+      animation: pulseGlow 1.2s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      from { transform: scale(1); }
+      to { transform: scale(1.03); }
+    }
+
+    .glossary-box {
+      margin-top: 25px;
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 18px;
+      border: 3px solid #f1f5f9;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .glossary-title {
+      font-family: 'Paytone One', sans-serif;
+      font-size: 1.05rem;
+      color: #ff3366;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .glossary-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .glossary-table th, .glossary-table td {
+      padding: 10px;
+      border-bottom: 1px solid #edf2f7;
+      text-align: left;
+    }
+
+    .glossary-table th {
+      background: #fff0f5;
+      color: #ff3366;
+      font-family: 'Paytone One', sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .question-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+      border: 3px solid #f1f5f9;
+    }
+
+    .question-number {
+      display: inline-block;
+      font-family: 'Paytone One', sans-serif;
+      background: #fff0f5;
+      color: #ff3366;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+      border: 2px solid #ffb6c1;
+    }
+
+    .question-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 14px;
+      line-height: 1.6;
+    }
+
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .option-btn {
+      font-family: 'Fredoka', sans-serif;
+      background: #f8fafc;
+      border: 3px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 12px 16px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: #334155;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 3px 0px #e2e8f0;
+    }
+
+    .option-btn:hover {
+      background: #f1f5f9;
+      transform: translateX(4px);
+    }
+
+    .option-btn.correct {
+      background: #dcfce7 !important;
+      border-color: var(--accent-green) !important;
+      color: #15803d !important;
+      font-weight: 700;
+      box-shadow: 0 3px 0px var(--accent-green);
+    }
+
+    .option-btn.wrong {
+      background: #ffe4e6 !important;
+      border-color: var(--accent-red) !important;
+      color: #b91c1c !important;
+      box-shadow: 0 3px 0px var(--accent-red);
+      animation: shake 0.4s ease;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      75% { transform: translateX(6px); }
+    }
+
+    .explanation-box {
+      display: none;
+      margin-top: 14px;
+      padding: 16px;
+      border-radius: 16px;
+      background: #f8fafc;
+      border: 3px dashed #cbd5e1;
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    .explanation-box.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .exp-item {
+      margin-bottom: 8px;
+    }
+
+    .exp-title {
+      font-family: 'Paytone One', sans-serif;
+      font-size: 0.88rem;
+      color: #0f172a;
+    }
+
+    .locate-btn {
+      font-family: 'Fredoka', sans-serif;
+      background: #fef08a;
+      color: #854d0e;
+      border: 2px solid #fde047;
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .locate-btn:hover {
+      background: #fde047;
+      transform: scale(1.03);
+    }
+
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(5px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-overlay.show {
+      display: flex;
+    }
+
+    .modal-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 28px;
+      width: 90%;
+      max-width: 460px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      border: 5px solid var(--primary-pink);
+    }
+
+    .modal-score {
+      font-family: 'Paytone One', sans-serif;
+      font-size: 2.8rem;
+      color: #ff3366;
+      margin: 12px 0;
+    }
+
+    .modal-comment {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 18px;
+    }
+
+    #confetti-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    @media (max-width: 850px) {
+      .main-container {
+        flex-direction: column;
+        overflow-y: auto;
+      }
+      body { overflow: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <header>
+    <div class="brand-badge">
+      <span>👩‍🏫</span>
+      <h1>Ms Lê Hằng English</h1>
+    </div>
+
+    <!-- 4 Isolated Tabs for Exercise 4 -->
+    <div class="passage-tabs">
+      <button class="tab-btn active" onclick="switchPassage(1)">Bài 1: The Book Incident 📚</button>
+      <button class="tab-btn" onclick="switchPassage(2)">Bài 2: Unforgettable Zoo Trip 🦁</button>
+      <button class="tab-btn" onclick="switchPassage(3)">Bài 3: Living Alone in Hanoi 🏙️</button>
+      <button class="tab-btn" onclick="switchPassage(4)">Bài 4: Facing Bullying at School 🏫</button>
+    </div>
+
+    <div class="timer-container">
+      <button class="btn-gamified" id="timer-toggle-btn" onclick="toggleTimer()">⏱️ BẮT ĐẦU TÍNH GIỜ</button>
+      <span class="timer-display" id="timer-display">25:00</span>
+    </div>
+
+    <div class="progress-box">
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+      <span class="progress-text" id="progress-text">0%</span>
+    </div>
+
+    <button class="btn-gamified btn-submit-main" onclick="submitTest()">🏆 NỘP BÀI</button>
+  </header>
+
+  <main class="main-container">
+    <div class="split-pane" id="reading-pane"></div>
+    <div class="split-pane" id="exercise-pane"></div>
+  </main>
+
+  <div class="modal-overlay" id="result-modal">
+    <div class="modal-card">
+      <h2 style="font-family:'Paytone One', sans-serif; color:#ff3366;">🎉 KẾT QUẢ BÀI THI 🎉</h2>
+      <div class="modal-score" id="score-text">0 / 0</div>
+      <div class="modal-comment" id="comment-text">Cố lên nhé!</div>
+      <button class="btn-gamified" onclick="closeModal()">Đóng & Xem Lại</button>
+    </div>
+  </div>
+
+  <script>
+    const passagesData = {
+      1: {
+        title: "Passage 1: The Book Incident (School Bullying)",
+        paragraphs: [
+          {
+            id: "p1_passage",
+            text: "<p class='paragraph-text'>" +
+                  "I will never forget that terrible day when I was bullied by my classmates. I <span id='ev_q1' class='evidence-target'>(1) ________</span> a book from Mai - one of my peers. When I finished it, another girl, Linh in our group wanted to read it, so she asked to borrow it. Without much <span id='ev_q2' class='evidence-target'>(2) ________</span>, I gave the book to Linh, who then gave it back to Mai after finishing it. Mai took the book from Linh but still asked me to <span id='ev_q3' class='evidence-target'>(3) ________</span> it. I felt <span id='ev_q4' class='evidence-target'>(4) ________</span> and almost burst into tears. I decided <span id='ev_q5' class='evidence-target'>(5) ________</span> our form teacher. After listening to my whole story, our form teacher asked Mai: “Mai, do you really want <span id='ev_q6' class='evidence-target'>(6) ________</span> copy of the same book?”. Then she said to Linh: “Linh, give the book back to Hoa. You took it from Hoa.” They stood there saying nothing. Then our teacher asked: “Where’s the book now?” Mai got it out from her <span id='ev_q7' class='evidence-target'>(7) ________</span> and gave it back to Linh. Linh gave it back to me with an apology. I could finally return it to Mai, who then felt <span id='ev_q8' class='evidence-target'>(8) ________</span> about her trick. I also learnt a lesson: I will return what I borrow to the original lender only." +
+                  "</p>",
+            translation: "Tôi sẽ không bao giờ quên ngày tồi tệ đó khi tôi bị các bạn cùng lớp bắt nạt. Tôi đã mượn một cuốn sách từ Mai - một trong những bạn cùng lứa của tôi. Khi tôi đọc xong, một bạn nữ khác trong nhóm là Linh muốn đọc nó nên đã xin mượn. Không suy nghĩ nhiều, tôi đưa quyển sách cho Linh, người sau đó đã trả lại cho Mai sau khi đọc xong. Mai lấy lại sách từ Linh nhưng vẫn yêu cầu tôi phải trả lại quyển sách đó. Tôi cảm thấy bất lực và suýt bật khóc. Tôi quyết định báo với giáo viên chủ nhiệm. Sau khi nghe toàn bộ câu chuyện, cô giáo chủ nhiệm hỏi Mai: \"Mai, em có thực sự muốn một bản sao/cuốn sách khác giống hệt vậy không?\". Sau đó cô nói với Linh: \"Linh, trả sách lại cho Hoa đi. Em lấy nó từ Hoa mà.\" Họ đứng đó không nói gì. Rồi cô giáo hỏi: \"Bây giờ cuốn sách đâu rồi?\". Mai lấy nó ra từ balo của mình và đưa lại cho Linh. Linh đưa lại cho tôi kèm một lời xin lỗi. Cuối cùng tôi cũng có thể trả lại sách cho Mai, người sau đó cảm thấy xấu hổ về trò chơi khăm của mình. Tôi cũng rút ra được một bài học: Tôi sẽ chỉ trả lại những gì mình mượn cho chính người cho mượn ban đầu."
+          }
+        ],
+        glossary: [
+          { word: "Peer (n)", type: "Noun", meaning: "Bạn đồng lứa", synonym: "Classmate / Equal" },
+          { word: "Burst into tears (idiom)", type: "Phrase", meaning: "Bật khóc òa lên", synonym: "Break down crying" },
+          { word: "Helpless (adj)", type: "Adj", meaning: "Bất lực / Không thể tự giúp mình", synonym: "Powerless / Vulnerable" },
+          { word: "Ashamed (adj)", type: "Adj", meaning: "Xấu hổ / Thẹn thùng", synonym: "Embarrassed / Mortified" },
+          { word: "Original lender (n phr)", type: "Noun", meaning: "Người cho mượn ban đầu", synonym: "Initial provider" }
+        ],
+        questions: [
+          {
+            id: "q1",
+            type: "mcq",
+            question: "Question 1: Choose the correct verb for blank (1)",
+            options: ["A. borrowed", "B. gave", "C. bought", "D. lent"],
+            answer: "A. borrowed",
+            explanationType: "reading",
+            explanation: {
+              answer: "A. borrowed",
+              questionContext: "Cụm từ 'borrow something from somebody' (mượn cái gì từ ai).",
+              passageQuote: "I (1) borrowed a book from Mai...",
+              quoteTranslation: "Tôi đã mượn một cuốn sách từ Mai...",
+              synonyms: "borrow ... from = mượn từ ai (trái nghĩa với lend to = cho mượn)",
+              evidenceId: "ev_q1"
+            }
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            question: "Question 2: Choose the correct option for blank (2)",
+            options: ["A. listening", "B. looking", "C. worrying", "D. thinking"],
+            answer: "D. thinking",
+            explanationType: "reading",
+            explanation: {
+              answer: "D. thinking",
+              questionContext: "Cụm từ thành ngữ 'Without much thinking' (không suy nghĩ nhiều).",
+              passageQuote: "Without much (2) thinking, I gave the book to Linh...",
+              quoteTranslation: "Không cần suy nghĩ nhiều, tôi đã đưa cuốn sách cho Linh...",
+              synonyms: "Without much thinking = không suy tính nhiều",
+              evidenceId: "ev_q2"
+            }
+          },
+          {
+            id: "q3",
+            type: "mcq",
+            question: "Question 3: Choose the correct verb for blank (3)",
+            options: ["A. keep", "B. return", "C. lend", "D. give away"],
+            answer: "B. return",
+            explanationType: "reading",
+            explanation: {
+              answer: "B. return",
+              questionContext: "Yêu cầu trả lại sách cho chính chủ: ask somebody to return something.",
+              passageQuote: "Mai took the book from Linh but still asked me to (3) return it.",
+              quoteTranslation: "Mai đã nhận lại sách từ Linh nhưng vẫn bắt tôi phải trả lại cuốn sách đó...",
+              synonyms: "return = give back (trả lại)",
+              evidenceId: "ev_q3"
+            }
+          },
+          {
+            id: "q4",
+            type: "mcq",
+            question: "Question 4: Choose the correct adjective for blank (4)",
+            options: ["A. helpless", "B. hopeful", "C. amazed", "D. frightened"],
+            answer: "A. helpless",
+            explanationType: "reading",
+            explanation: {
+              answer: "A. helpless",
+              questionContext: "Cảm xúc bị vô cớ đòi sách dù đã trả rồi -> cảm thấy bất lực (helpless).",
+              passageQuote: "I felt (4) helpless and almost burst into tears.",
+              quoteTranslation: "Tôi cảm thấy bất lực và suýt òa khóc.",
+              synonyms: "helpless = cảm giác không thể làm gì để tự vệ",
+              evidenceId: "ev_q4"
+            }
+          },
+          {
+            id: "q5",
+            type: "mcq",
+            question: "Question 5: Choose the correct verb form for blank (5)",
+            options: ["A. telling", "B. to tell", "C. tell", "D. told"],
+            answer: "B. to tell",
+            explanationType: "reading",
+            explanation: {
+              answer: "B. to tell",
+              questionContext: "Cấu trúc ngữ pháp: decide + to-V (quyết định làm gì).",
+              passageQuote: "I decided (5) to tell our form teacher.",
+              quoteTranslation: "Tôi quyết định báo / nói với giáo viên chủ nhiệm.",
+              synonyms: "decide to V = đưa ra quyết định thực hiện hành động",
+              evidenceId: "ev_q5"
+            }
+          },
+          {
+            id: "q6",
+            type: "mcq",
+            question: "Question 6: Choose the correct determiner for blank (6)",
+            options: ["A. other", "B. a", "C. another", "D. some"],
+            answer: "C. another",
+            explanationType: "reading",
+            explanation: {
+              answer: "C. another",
+              questionContext: "Phân biệt determiners: 'another + danh từ số ít' (một cái khác cùng loại).",
+              passageQuote: "Mai, do you really want (6) another copy of the same book?",
+              quoteTranslation: "Mai, em có thực sự muốn thêm một bản sao khác của cùng cuốn sách đó không?",
+              synonyms: "another + singular countable noun (another copy)",
+              evidenceId: "ev_q6"
+            }
+          },
+          {
+            id: "q7",
+            type: "mcq",
+            question: "Question 7: Choose the correct noun for blank (7)",
+            options: ["A. backpack", "B. suitcase", "C. wallet", "D. purse"],
+            answer: "A. backpack",
+            explanationType: "reading",
+            explanation: {
+              answer: "A. backpack",
+              questionContext: "Học sinh đi học đựng sách trong balo (backpack).",
+              passageQuote: "Mai got it out from her (7) backpack and gave it back to Linh.",
+              quoteTranslation: "Mai lấy cuốn sách ra từ trong balo của cô ấy và đưa lại cho Linh.",
+              synonyms: "backpack = cặp sách, balo đi học",
+              evidenceId: "ev_q7"
+            }
+          },
+          {
+            id: "q8",
+            type: "mcq",
+            question: "Question 8: Choose the correct adjective for blank (8)",
+            options: ["A. happy", "B. ashamed", "C. excited", "D. pleased"],
+            answer: "B. ashamed",
+            explanationType: "reading",
+            explanation: {
+              answer: "B. ashamed",
+              questionContext: "Sau khi bị cô giáo vạch trần trò đùa xấu -> cảm thấy xấu hổ (ashamed).",
+              passageQuote: "...who then felt (8) ashamed about her trick.",
+              quoteTranslation: "...người sau đó cảm thấy xấu hổ về trò chơi khăm của mình.",
+              synonyms: "ashamed = ngượng ngùng, xấu hổ vì lỗi lầm",
+              evidenceId: "ev_q8"
+            }
+          }
+        ]
+      },
+      2: {
+        title: "Passage 2: My Unforgettable Zoo Trip",
+        paragraphs: [
+          {
+            id: "p2_passage",
+            text: "<p class='paragraph-text'>" +
+                  "Last summer, I visited <span id='ev2_q1' class='evidence-target'>(1) ________</span> zoo with my family, and it was an unforgettable experience. We spent the whole day there. First, we went to see the elephants. They were enormous and made <span id='ev2_q2' class='evidence-target'>(2) ________</span> noise with their trunks. <span id='ev2_q3' class='evidence-target'>(3) ________</span>, the highlight of my visit was the lion exhibit. The huge male lion was basking in the sun and let out a powerful roar that rumbled the ground. It was thrilling and a little frightening. Getting so close to these amazing animals was truly special. The trip made me appreciate nature and the wonders of the animal kingdom. It was a fantastic day full of new sights and sounds that I will always cherish. We have <span id='ev2_q4' class='evidence-target'>(4) ________</span> many new experiences on our trip to the zoo. I have <span id='ev2_q5' class='evidence-target'>(5) ________</span> a deeper appreciation for nature since that visit to the zoo." +
+                  "</p>",
+            translation: "Mùa hè năm ngoái, tôi đã đến thăm một vườn thú cùng gia đình, và đó là một trải nghiệm không thể nào quên. Chúng tôi đã dành cả ngày ở đó. Đầu tiên, chúng tôi đi xem voi. Chúng rất to lớn và tạo ra nhiều tiếng ồn bằng vòi của mình. Hơn nữa / Tuy nhiên, điểm nhấn trong chuyến đi của tôi là khu triển lãm sư tử. Con sư tử đực khổng lồ đang sưởi nắng và cất tiếng gầm dữ dội làm rung chuyển mặt đất. Thật hồi hộp và có chút đáng sợ. Được đến gần những loài động vật tuyệt vời này thực sự rất đặc biệt. Chuyến đi làm tôi thêm trân trọng thiên nhiên và những điều kỳ diệu của thế giới động vật. Đó là một ngày tuyệt vời tràn ngập những hình ảnh và âm thanh mới mà tôi sẽ luôn trân trọng. Chúng tôi đã có nhiều trải nghiệm mới trong chuyến đi sở thú. Tôi đã phát triển sự trân trọng sâu sắc hơn đối với thiên nhiên kể từ chuyến thăm sở thú đó."
+          }
+        ],
+        glossary: [
+          { word: "Enormous (adj)", type: "Adj", meaning: "Khổng lồ / Bàng quan", synonym: "Huge / Massive / Gigantic" },
+          { word: "Bask (v)", type: "Verb", meaning: "Sưởi nắng / Thưởng thức", synonym: "Sunbathe / Relax" },
+          { word: "Rumble (v)", type: "Verb", meaning: "Rầm rộ / Rung chuyển", synonym: "Reverberate / Resonate" },
+          { word: "Cherish (v)", type: "Verb", meaning: "Trân trọng / Yêu thương", synonym: "Treasure / Value highly" }
+        ],
+        questions: [
+          {
+            id: "q2_1",
+            type: "mcq",
+            question: "Question 1: Choose the correct article for blank (1)",
+            options: ["A. a", "B. the", "C. an", "D. some"],
+            answer: "A. a",
+            explanationType: "reading",
+            explanation: {
+              answer: "A. a",
+              questionContext: "Lần đầu nhắc tới một sở thú chưa xác định -> dùng mạo từ không xác định 'a'.",
+              passageQuote: "Last summer, I visited (1) a zoo with my family...",
+              quoteTranslation: "Mùa hè năm ngoái, tôi đã đến thăm một sở thú cùng gia đình...",
+              synonyms: "a + consonant sound (a zoo)",
+              evidenceId: "ev2_q1"
+            }
+          },
+          {
+            id: "q2_2",
+            type: "mcq",
+            question: "Question 2: Choose the correct quantifier for blank (2)",
+            options: ["A. a", "B. some", "C. many", "D. few"],
+            answer: "B. some",
+            explanationType: "reading",
+            explanation: {
+              answer: "B. some",
+              questionContext: "Danh từ không đếm được 'noise' dùng lượng từ 'some noise' (tạo ra tiếng ồn).",
+              passageQuote: "They were enormous and made (2) some noise with their trunks.",
+              quoteTranslation: "Chúng rất to lớn và phát ra những tiếng ồn bằng vòi của mình.",
+              synonyms: "made some noise (phát ra tiếng ồn)",
+              evidenceId: "ev2_q2"
+            }
+          },
+          {
+            id: "q2_3",
+            type: "mcq",
+            question: "Question 3: Choose the correct linking word for blank (3)",
+            options: ["A. Although", "B. Despite", "C. Moreover", "D. Because"],
+            answer: "C. Moreover",
+            explanationType: "reading",
+            explanation: {
+              answer: "C. Moreover",
+              questionContext: "Trạng từ liên kết đứng đầu câu có dấu phẩy bổ sung thông tin: Moreover (Hơn nữa).",
+              passageQuote: "(3) Moreover, the highlight of my visit was the lion exhibit.",
+              quoteTranslation: "Hơn nữa, điểm nhấn của chuyến đi chính là khu xem sư tử.",
+              synonyms: "Moreover = In addition / Furthermore",
+              evidenceId: "ev2_q3"
+            }
+          },
+          {
+            id: "q2_4",
+            type: "mcq",
+            question: "Question 4: Choose the correct verb form for blank (4)",
+            options: ["A. had", "B. been having", "C. have", "D. has"],
+            answer: "A. had",
+            explanationType: "reading",
+            explanation: {
+              answer: "A. had",
+              questionContext: "Thì Hiện tại hoàn thành: have + V3/ED (have had).",
+              passageQuote: "We have (4) had many new experiences on our trip to the zoo.",
+              quoteTranslation: "Chúng tôi đã có nhiều trải nghiệm mới trong chuyến đi tới sở thú.",
+              synonyms: "have had = hiện tại hoàn thành của động từ have",
+              evidenceId: "ev2_q4"
+            }
+          },
+          {
+            id: "q2_5",
+            type: "mcq",
+            question: "Question 5: Choose the correct verb form for blank (5)",
+            options: ["A. developed", "B. developing", "C. develop", "D. develops"],
+            answer: "A. developed",
+            explanationType: "reading",
+            explanation: {
+              answer: "A. developed",
+              questionContext: "Thì Hiện tại hoàn thành với từ nhận biết 'since': I have + V3 (developed).",
+              passageQuote: "I have (5) developed a deeper appreciation for nature since that visit...",
+              quoteTranslation: "Tôi đã nảy sinh/phát triển sự trân trọng sâu sắc hơn với thiên nhiên kể từ chuyến đi đó...",
+              synonyms: "have developed = đã xây dựng / có được",
+              evidenceId: "ev2_q5"
+            }
+          }
+        ]
+      },
+      3: {
+        title: "Passage 3: Living Alone in Hanoi",
+        paragraphs: [
+          {
+            id: "p3_passage",
+            text: "<p class='paragraph-text'>" +
+                  "I lived alone in Hanoi for a while, and this experience taught me many valuable lessons about independence. During this time, I learned how to take care of myself. Creating <span id='ev3_q1' class='evidence-target'>(1) ________</span> good living plan helped me stay healthy, which is important for studying and working. Living alone <span id='ev3_q2' class='evidence-target'>(2) ________</span> the city means I need to be very careful. I <span id='ev3_q3' class='evidence-target'>(3) ________</span> more cautious about trusting people. <span id='ev3_q4' class='evidence-target'>(4) ________</span> there are many good people in society, there are also some bad ones who might take advantage of your trust for their gain. So, you need to be very careful when deciding to trust someone. I also learned how to manage my spending. When you live alone, if you don't <span id='ev3_q5' class='evidence-target'>(5) ________</span> your money well, you can easily get into debt and face problems. Thanks to this alone time, I <span id='ev3_q6' class='evidence-target'>(6) ________</span> felt confident and able to handle any situation." +
+                  "</p>",
+            translation: "Tôi từng sống một mình ở Hà Nội một thời gian, và trải nghiệm này đã dạy tôi nhiều bài học quý giá về sự tự lập. Trong thời gian này, tôi học được cách tự chăm sóc bản thân. Việc lập một kế hoạch sống tốt giúp tôi giữ gìn sức khỏe, điều này rất quan trọng cho việc học tập và làm việc. Sống một mình ở thành phố có nghĩa là tôi cần phải rất cẩn thận. Tôi đã trở nên thận trọng hơn trong việc tin tưởng mọi người. Mặc dù có nhiều người tốt trong xã hội, nhưng cũng có một số kẻ xấu có thể lợi dụng sự tin tưởng của bạn để vụ lợi. Vì vậy, bạn cần phải rất cẩn thận khi quyết định tin tưởng ai đó. Tôi cũng học được cách quản lý chi tiêu của mình. Khi bạn sống một mình, nếu không quản lý tốt tiền bạc, bạn có thể dễ dàng lâm vào cảnh nợ nần và gặp rắc rối. Nhờ có khoảng thời gian sống một mình này, tôi đã cảm thấy tự tin và có khả năng xử lý mọi tình huống."
+          }
+        ],
+        glossary: [
+          { word: "Independence (n)", type: "Noun", meaning: "Sự tự lập / Độc lập", synonym: "Self-reliance / Autonomy" },
+          { word: "Cautious (adj)", type: "Adj", meaning: "Thận trọng / Cẩn giác", synonym: "Careful / Guarded / Vigilant" },
+          { word: "Take advantage of (phr)", type: "Verb", meaning: "Lợi dụng", synonym: "Exploit / Abuse" },
+          { word: "Get into debt (phr)", type: "Phrase", meaning: "Lâm vào nợ nần", synonym: "Owe money / Be in the red" }
+        ],
+        questions: [
+          {
+            id: "q3_1",
+            type: "mcq",
+            question: "Question 1: Choose the correct article for blank (1)",
+            options: ["A. the", "B. a", "C. an", "D. no article"],
+            answer: "B. a",
+            explanationType: "reading",
+            explanation: {
+              answer: "B. a",
+              questionContext: "Cụm danh từ đếm được số ít 'a good living plan' (một kế hoạch sống tốt).",
+              passageQuote: "Creating (1) a good living plan helped me stay healthy...",
+              quoteTranslation: "Tạo ra một kế hoạch sống tốt đã giúp tôi giữ gìn sức khỏe...",
+              synonyms: "a + adjective starting with consonant (a good plan)",
+              evidenceId: "ev3_q1"
+            }
+          },
+          {
+            id: "q3_2",
+            type: "mcq",
+            question: "Question 2: Choose the correct preposition for blank (2)",
+            options: ["A. at the", "B. on the", "C. in the", "D. of the"],
+            answer: "C. in the",
+            explanationType: "reading",
+            explanation: {
+              answer: "C. in the",
+              questionContext: "Giới từ chỉ vị trí không gian thành phố: in the city (ở thành phố).",
+              passageQuote: "Living alone (2) in the city means I need to be very careful.",
+              quoteTranslation: "Sống một mình ở thành phố đồng nghĩa với việc tôi phải rất cẩn thận.",
+              synonyms: "in the city = trong phạm vi đô thị",
+              evidenceId: "ev3_q2"
+            }
+          },
+          {
+            id: "q3_3",
+            type: "mcq",
+            question: "Question 3: Choose the correct tense/verb for blank (3)",
+            options: ["A. had become", "B. have become", "C. have became", "D. having become"],
+            answer: "B. have become",
+            explanationType: "reading",
+            explanation: {
+              answer: "B. have become",
+              questionContext: "Thì Hiện tại hoàn thành diễn tả sự thay đổi kéo dài đến nay: have + V3 (become).",
+              passageQuote: "I (3) have become more cautious about trusting people.",
+              quoteTranslation: "Tôi đã trở nên thận trọng hơn trong việc đặt niềm tin vào người khác.",
+              synonyms: "have become = đã trở nên",
+              evidenceId: "ev3_q3"
+            }
+          },
+          {
+            id: "q3_4",
+            type: "mcq",
+            question: "Question 4: Choose the correct conjunction for blank (4)",
+            options: ["A. because", "B. although", "C. during", "D. if"],
+            answer: "B. although",
+            explanationType: "reading",
+            explanation: {
+              answer: "B. although",
+              questionContext: "Mệnh đề chỉ sự nhượng bộ / đối lập: Although + S + V (Mặc dù...).",
+              passageQuote: "(4) Although there are many good people in society, there are also some bad ones...",
+              quoteTranslation: "Mặc dù có nhiều người tốt trong xã hội, cũng có những kẻ xấu...",
+              synonyms: "Although = Even though / Though",
+              evidenceId: "ev3_q4"
+            }
+          },
+          {
+            id: "q3_5",
+            type: "mcq",
+            question: "Question 5: Choose the correct verb form for blank (5)",
+            options: ["A. manage", "B. managed", "C. manages", "D. managing"],
+            answer: "A. manage",
+            explanationType: "reading",
+            explanation: {
+              answer: "A. manage",
+              questionContext: "Câu điều kiện loại 1 / Trợ động từ phủ định don't + V nguyên mẫu (don't manage).",
+              passageQuote: "...if you don't (5) manage your money well, you can easily get into debt...",
+              quoteTranslation: "...nếu bạn không quản lý tiền bạc tốt, bạn dễ lâm vào nợ nần...",
+              synonyms: "don't + V_bare = không thực hiện hành động",
+              evidenceId: "ev3_q5"
+            }
+          },
+          {
+            id: "q3_6",
+            type: "mcq",
+            question: "Question 6: Choose the correct auxiliary verb for blank (6)",
+            options: ["A. have", "B. had", "C. has", "D. having"],
+            answer: "A. have",
+            explanationType: "reading",
+            explanation: {
+              answer: "A. have",
+              questionContext: "Thì Hiện tại hoàn thành khẳng định kết quả ở hiện tại: I + have + V3 (felt).",
+              passageQuote: "Thanks to this alone time, I (6) have felt confident and able to handle any situation.",
+              quoteTranslation: "Nhờ khoảng thời gian ở một mình này, tôi đã cảm thấy tự tin và có thể xử lý mọi tình huống.",
+              synonyms: "have felt = đã và đang cảm thấy",
+              evidenceId: "ev3_q6"
+            }
+          }
+        ]
+      },
+      4: {
+        title: "Passage 4: Facing Bullying in Secondary School",
+        paragraphs: [
+          {
+            id: "p4_passage",
+            text: "<p class='paragraph-text'>" +
+                  "Secondary school was not a fun time with me due to my <span id='ev4_q1' class='evidence-target'>(1) ________</span> experience of being bullied. It started with some teasing and name-calling, but then it got more serious with physical <span id='ev4_q2' class='evidence-target'>(2) ________</span>. There were a few times when I tried to fight back the bullies, but I always ended up getting <span id='ev4_q3' class='evidence-target'>(3) ________</span> because they were bigger and stronger than me. The worst part was that none of my peers ever stepped up to help me, which made me feel so alone and <span id='ev4_q4' class='evidence-target'>(4) ________</span>. After a long time of suffering alone and keeping silence, I finally sought <span id='ev4_q5' class='evidence-target'>(5) ________</span> from my parents. It took a lot of <span id='ev4_q6' class='evidence-target'>(6) ________</span> for me to tell them what was going on, but I'm glad I did. They immediately contacted the school and demanded that they take <span id='ev4_q7' class='evidence-target'>(7) ________</span> against the bullies. Finally, something was done, and the bullying stopped. Looking back, I just wish I had spoken up sooner. I also think the school could have done a better job of <span id='ev4_q8' class='evidence-target'>(8) ________</span> with the issue. Nowadays, there are more methods available for addressing bullying, and I hope that no one else has to go through what I went through." +
+                  "</p>",
+            translation: "Trường cấp 2 không phải là quãng thời gian vui vẻ đối với tôi do trải nghiệm tồi tệ khi bị bắt nạt. Nó bắt đầu bằng việc trêu chọc và lăng mạ, nhưng sau đó nó trở nên nghiêm trọng hơn với bạo lực thể xác. Có vài lần tôi đã cố chống trả lại những kẻ bắt nạt, nhưng tôi luôn kết thúc bằng việc bị tổn thương/đau đớn vì chúng to lớn và khỏe hơn tôi. Điều tồi tệ nhất là không ai trong số bạn bè đứng ra giúp đỡ tôi, điều đó khiến tôi cảm thấy vô cùng cô đơn và bất lực. Sau một thời gian dài chịu đựng một mình và giữ im lặng, cuối cùng tôi đã tìm kiếm sự giúp đỡ từ bố mẹ. Tôi đã phải lấy rất nhiều dũng khí để nói cho họ biết chuyện gì đang xảy ra, nhưng tôi mừng là mình đã làm vậy. Họ lập tức liên hệ với nhà trường và yêu cầu phải có biện pháp xử lý những kẻ bắt nạt. Cuối cùng, hành động đã được thực hiện và nạn bắt nạt đã dừng lại. Nhìn lại, tôi chỉ ước mình đã lên tiếng sớm hơn. Tôi cũng nghĩ nhà trường lẽ ra có thể làm tốt hơn trong việc giải quyết vấn đề này. Ngày nay, có nhiều phương pháp hơn để giải quyết nạn bắt nạt, và tôi hy vọng không ai khác phải trải qua những gì tôi đã từng chịu đựng."
+          }
+        ],
+        glossary: [
+          { word: "Name-calling (n)", type: "Noun", meaning: "Lăng mạ / Lời chửi rủa", synonym: "Insults / Verbal abuse" },
+          { word: "Physical violence (n phr)", type: "Noun", meaning: "Bạo lực thể xác", synonym: "Bodily harm / Assault" },
+          { word: "Courage (n)", type: "Noun", meaning: "Dũng khí / Lòng dũng cảm", synonym: "Bravery / Valour" },
+          { word: "Take action (phr)", type: "Phrase", meaning: "Hành động / Biện pháp xử lý", synonym: "Act / Take measures" },
+          { word: "Deal with (phr v)", type: "Verb", meaning: "Giải quyết / Xử lý", synonym: "Handle / Address / Tackle" }
+        ],
+        questions: [
+          {
+            id: "q4_1",
+            type: "mcq",
+            question: "Question 1: Choose the correct adjective for blank (1)",
+            options: ["A. exciting", "B. terrible", "C. magical", "D. joyful"],
+            answer: "B. terrible",
+            explanationType: "reading",
+            explanation: {
+              answer: "B. terrible",
+              questionContext: "Trải nghiệm bị bắt nạt là một trải nghiệm tồi tệ (terrible experience).",
+              passageQuote: "...due to my (1) terrible experience of being bullied.",
+              quoteTranslation: "...do trải nghiệm kinh hoàng/tồi tệ bị bắt nạt của tôi.",
+              synonyms: "terrible = awful / dreadful",
+              evidenceId: "ev4_q1"
+            }
+          },
+          {
+            id: "q4_2",
+            type: "mcq",
+            question: "Question 2: Choose the correct noun for blank (2)",
+            options: ["A. violence", "B. exercise", "C. strength", "D. training"],
+            answer: "A. violence",
+            explanationType: "reading",
+            explanation: {
+              answer: "A. violence",
+              questionContext: "Bắt nạt bằng hành động đánh đập = physical violence (bạo lực thể xác).",
+              passageQuote: "...got more serious with physical (2) violence.",
+              quoteTranslation: "...trở nên nghiêm trọng hơn với bạo lực thể xác.",
+              synonyms: "physical violence = dùng vũ lực đánh đập",
+              evidenceId: "ev4_q2"
+            }
+          },
+          {
+            id: "q4_3",
+            type: "mcq",
+            question: "Question 3: Choose the correct participle for blank (3)",
+            options: ["A. hurt", "B. ignored", "C. rejected", "D. upset"],
+            answer: "A. hurt",
+            explanationType: "reading",
+            explanation: {
+              answer: "A. hurt",
+              questionContext: "Cấu trúc get + V3 (bị thương/bị đau): get hurt.",
+              passageQuote: "...always ended up getting (3) hurt because they were bigger...",
+              quoteTranslation: "...luôn kết thúc bằng việc bị tổn thương/bị đau vì chúng to khỏe hơn...",
+              synonyms: "get hurt = bị đau, bị thương",
+              evidenceId: "ev4_q3"
+            }
+          },
+          {
+            id: "q4_4",
+            type: "mcq",
+            question: "Question 4: Choose the correct adjective for blank (4)",
+            options: ["A. anxious", "B. guilty", "C. exhausted", "D. helpless"],
+            answer: "D. helpless",
+            explanationType: "reading",
+            explanation: {
+              answer: "D. helpless",
+              questionContext: "Không ai giúp đỡ nên cảm thấy cô đơn và bất lực (alone and helpless).",
+              passageQuote: "...made me feel so alone and (4) helpless.",
+              quoteTranslation: "...khiến tôi cảm thấy vô cùng cô đơn và bất lực.",
+              synonyms: "helpless = không thể tự chống đỡ hay thay đổi tình thế",
+              evidenceId: "ev4_q4"
+            }
+          },
+          {
+            id: "q4_5",
+            type: "mcq",
+            question: "Question 5: Choose the correct noun for blank (5)",
+            options: ["A. success", "B. connection", "C. help", "D. peace"],
+            answer: "C. help",
+            explanationType: "reading",
+            explanation: {
+              answer: "C. help",
+              questionContext: "Cụm từ seek help from somebody (tìm kiếm sự giúp đỡ từ ai).",
+              passageQuote: "I finally sought (5) help from my parents.",
+              quoteTranslation: "Cuối cùng tôi đã tìm kiếm sự giúp đỡ từ bố mẹ.",
+              synonyms: "sought help = ask for assistance",
+              evidenceId: "ev4_q5"
+            }
+          },
+          {
+            id: "q4_6",
+            type: "mcq",
+            question: "Question 6: Choose the correct noun form for blank (6)",
+            options: ["A. encourage", "B. courage", "C. encouragement", "D. discourage"],
+            answer: "B. courage",
+            explanationType: "reading",
+            explanation: {
+              answer: "B. courage",
+              questionContext: "Cấu trúc: take a lot of courage to V (tốn/cần nhiều dũng khí để làm gì).",
+              passageQuote: "It took a lot of (6) courage for me to tell them...",
+              quoteTranslation: "Tôi đã mất rất nhiều dũng khí để nói cho bố mẹ biết...",
+              synonyms: "courage = bravery (lòng dũng cảm)",
+              evidenceId: "ev4_q6"
+            }
+          },
+          {
+            id: "q4_7",
+            type: "mcq",
+            question: "Question 7: Choose the correct noun for blank (7)",
+            options: ["A. action", "B. act", "C. acting", "D. activity"],
+            answer: "A. action",
+            explanationType: "reading",
+            explanation: {
+              answer: "A. action",
+              questionContext: "Cụm cố định: take action against somebody (hành động/xử lý ai).",
+              passageQuote: "...demanded that they take (7) action against the bullies.",
+              quoteTranslation: "...yêu cầu nhà trường phải có biện pháp xử lý kẻ bắt nạt.",
+              synonyms: "take action = ra tay xử lý / thực hiện biện pháp",
+              evidenceId: "ev4_q7"
+            }
+          },
+          {
+            id: "q8",
+            type: "mcq",
+            question: "Question 8: Choose the correct gerund for blank (8)",
+            options: ["A. connecting", "B. struggling", "C. dealing", "D. applying"],
+            answer: "C. dealing",
+            explanationType: "reading",
+            explanation: {
+              answer: "C. dealing",
+              questionContext: "Cụm động từ: deal with the issue (giải quyết/xử lý vấn đề).",
+              passageQuote: "...could have done a better job of (8) dealing with the issue.",
+              quoteTranslation: "...lẽ ra đã có thể làm tốt hơn trong việc giải quyết vấn đề này.",
+              synonyms: "deal with = handle / tackle (giải quyết)",
+              evidenceId: "ev4_q8"
+            }
+          }
+        ]
+      }
+    };
+
+    let currentPassageId = 1;
+    let userAnswers = {};
+    let timerSeconds = 1500;
+    let timerInterval = null;
+    let isTimerRunning = false;
+    let isTestLocked = false;
+
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+    function playCorrectSound() {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(523.25, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.3);
+      gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.3);
+    }
+
+    function playWrongSound() {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(220, audioCtx.currentTime);
+      osc.frequency.linearRampToValueAtTime(110, audioCtx.currentTime + 0.35);
+      gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.35);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.35);
+    }
+
+    function triggerConfetti() {
+      const canvas = document.getElementById('confetti-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      
+      let particles = [];
+      const colors = ['#ff6b8b', '#00d26a', '#fdcb6e', '#00c9a7', '#a855f7', '#ff4757'];
+      
+      for (let i = 0; i < 50; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height - canvas.height,
+          r: Math.random() * 6 + 4,
+          d: Math.random() * 8 + 4,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          tilt: Math.floor(Math.random() * 10) - 10,
+          tiltAngleIncremental: Math.random() * 0.07 + 0.05,
+          tiltAngle: 0
+        });
+      }
+
+      let step = 0;
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((p) => {
+          ctx.beginPath();
+          ctx.lineWidth = p.r;
+          ctx.strokeStyle = p.color;
+          ctx.moveTo(p.x + p.tilt + p.r / 2, p.y);
+          ctx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r / 2);
+          ctx.stroke();
+        });
+        update();
+        step++;
+        if (step < 90) requestAnimationFrame(draw);
+        else ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+
+      function update() {
+        particles.forEach((p) => {
+          p.tiltAngle += p.tiltAngleIncremental;
+          p.y += (Math.cos(p.d) + 3 + p.r / 2) / 2;
+          p.tilt = Math.sin(p.tiltAngle) * 15;
+        });
+      }
+      draw();
+    }
+
+    function shuffleArray(array) {
+      let arr = [...array];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function toggleTimer() {
+      const btn = document.getElementById('timer-toggle-btn');
+      if (isTimerRunning) {
+        clearInterval(timerInterval);
+        isTimerRunning = false;
+        btn.innerText = "▶️ TIẾP TỤC TÍNH GIỜ";
+      } else {
+        isTimerRunning = true;
+        btn.innerText = "⏸️ TẠM DỪNG TÍNH GIỜ";
+        timerInterval = setInterval(() => {
+          if (timerSeconds > 0) {
+            timerSeconds--;
+            updateTimerDisplay();
+          } else {
+            clearInterval(timerInterval);
+            isTimerRunning = false;
+            isTestLocked = true;
+            alert("⏰ Đã hết giờ làm bài, vui lòng nộp bài nhé!");
+            disableAllInputs();
+          }
+        }, 1000);
+      }
+    }
+
+    function updateTimerDisplay() {
+      const mins = Math.floor(timerSeconds / 60);
+      const secs = timerSeconds % 60;
+      document.getElementById('timer-display').innerText = 
+        `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    function disableAllInputs() {
+      document.querySelectorAll('button, select, input').forEach(el => {
+        if (!el.classList.contains('btn-submit-main') && el.id !== 'timer-toggle-btn') {
+          el.disabled = true;
+        }
+      });
+    }
+
+    function renderLeftPane(passageId) {
+      const pData = passagesData[passageId];
+      const readingPane = document.getElementById('reading-pane');
+      let html = `<div class="passage-title">${pData.title}</div>`;
+
+      pData.paragraphs.forEach((p) => {
+        html += `
+          <div class="paragraph-block">
+            <div class="paragraph-text">${p.text}</div>
+            <button class="translate-btn" onclick="toggleTranslation('${p.id}')">🌟 BẢN DỊCH ĐẦY ĐỦ</button>
+            <div class="translation-content" id="trans-${p.id}">${p.translation}</div>
+          </div>
+        `;
+      });
+
+      if (pData.glossary && pData.glossary.length > 0) {
+        html += `
+          <div class="glossary-box">
+            <div class="glossary-title">📚 Bảng Từ Vựng Academic & Từ Đồng Nghĩa</div>
+            <table class="glossary-table">
+              <thead>
+                <tr>
+                  <th>Từ vựng</th>
+                  <th>Loại từ</th>
+                  <th>Nghĩa tiếng Việt</th>
+                  <th>Từ đồng nghĩa</th>
+                </tr>
+              </thead>
+              <tbody>
+        `;
+        pData.glossary.forEach(g => {
+          html += `
+            <tr>
+              <td><strong>${g.word}</strong></td>
+              <td><em>${g.type}</em></td>
+              <td>${g.meaning}</td>
+              <td><code>${g.synonym}</code></td>
+            </tr>
+          `;
+        });
+        html += `</tbody></table></div>`;
+      }
+
+      readingPane.innerHTML = html;
+    }
+
+    function renderRightPane(passageId) {
+      const pData = passagesData[passageId];
+      const exercisePane = document.getElementById('exercise-pane');
+      let html = "";
+
+      pData.questions.forEach((q, idx) => {
+        html += `<div class="question-card" id="card-${q.id}">`;
+        html += `<span class="question-number">Câu ${idx + 1}</span>`;
+
+        html += `<div class="question-text">${q.question}</div>`;
+
+        if (q.type === 'mcq') {
+          const shuffledOpts = shuffleArray(q.options);
+          html += `<div class="options-grid">`;
+          shuffledOpts.forEach((opt) => {
+            html += `
+              <button class="option-btn" id="opt-${q.id}-${cleanStr(opt)}" onclick="checkMCQ('${q.id}', '${escapeQuotes(opt)}')">
+                <span>${opt}</span>
+              </button>
+            `;
+          });
+          html += `</div>`;
+        }
+
+        html += `<div class="explanation-box" id="exp-${q.id}">`;
+        if (q.explanationType === 'reading') {
+          html += `
+            <div class="exp-item"><span class="exp-title">(1) ĐÁP ÁN ĐÚNG:</span> <strong style="color: var(--accent-green);">${q.explanation.answer}</strong></div>
+            <div class="exp-item"><span class="exp-title">(2) ĐOẠN CHỨA ĐÁP ÁN:</span> "${q.explanation.passageQuote}"</div>
+            <div class="exp-item"><span class="exp-title">(3) DỊCH NGHĨA:</span> ${q.explanation.quoteTranslation}</div>
+            <div class="exp-item"><span class="exp-title">(4) TỪ ĐỒNG NGHĨA / PHÂN TÍCH:</span> <code>${q.explanation.synonyms}</code></div>
+            <button class="locate-btn" onclick="locateEvidence('${q.explanation.evidenceId}')">📍 Vị trí dẫn chứng trong bài</button>
+          `;
+        }
+        html += `</div></div>`;
+      });
+
+      exercisePane.innerHTML = html;
+    }
+
+    function checkMCQ(qId, selectedOpt) {
+      if (isTestLocked) return;
+      const q = findQuestion(qId);
+      const isCorrect = selectedOpt === q.answer;
+      userAnswers[qId] = isCorrect;
+
+      q.options.forEach(opt => {
+        const btn = document.getElementById(`opt-${qId}-${cleanStr(opt)}`);
+        if (btn) {
+          btn.disabled = true;
+          if (opt === q.answer) {
+            btn.classList.add('correct');
+          } else if (opt === selectedOpt) {
+            btn.classList.add('wrong');
+          }
+        }
+      });
+
+      handleAnswerResult(qId, isCorrect);
+    }
+
+    function handleAnswerResult(qId, isCorrect) {
+      const expBox = document.getElementById(`exp-${qId}`);
+      if (expBox) expBox.classList.add('show');
+
+      if (isCorrect) {
+        playCorrectSound();
+        triggerConfetti();
+      } else {
+        playWrongSound();
+      }
+
+      updateProgressBar();
+    }
+
+    function locateEvidence(elementId) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      el.classList.add('evidence-highlight');
+      setTimeout(() => {
+        el.classList.remove('evidence-highlight');
+      }, 3500);
+    }
+
+    function toggleTranslation(pId) {
+      const el = document.getElementById(`trans-${pId}`);
+      if (el) el.classList.toggle('show');
+    }
+
+    function switchPassage(pNum) {
+      currentPassageId = pNum;
+      document.querySelectorAll('.tab-btn').forEach((btn, idx) => {
+        btn.classList.toggle('active', (idx + 1) === pNum);
+      });
+      renderLeftPane(pNum);
+      renderRightPane(pNum);
+      updateProgressBar();
+    }
+
+    function updateProgressBar() {
+      let totalQuestions = 0;
+      Object.keys(passagesData).forEach(pKey => {
+        totalQuestions += passagesData[pKey].questions.length;
+      });
+
+      const answeredCount = Object.keys(userAnswers).length;
+      const percentage = Math.round((answeredCount / totalQuestions) * 100);
+
+      document.getElementById('progress-fill').style.width = `${percentage}%`;
+      document.getElementById('progress-text').innerText = `${percentage}%`;
+    }
+
+    function submitTest() {
+      let totalQuestions = 0;
+      let correctCount = 0;
+
+      Object.keys(passagesData).forEach(pKey => {
+        passagesData[pKey].questions.forEach(q => {
+          totalQuestions++;
+          if (userAnswers[q.id] === true) {
+            correctCount++;
+          }
+        });
+      });
+
+      const scoreText = `${correctCount} / ${totalQuestions}`;
+      document.getElementById('score-text').innerText = scoreText;
+
+      let comment = "Cố lên nhé! Hãy đọc lại các phần giải thích chi tiết để nắm chắc kiến thức!";
+      const ratio = correctCount / totalQuestions;
+      if (ratio === 1) {
+        comment = "🌟 THIÊN TÀI! Bạn xuất sắc đạt 100% điểm số!";
+      } else if (ratio >= 0.7) {
+        comment = "🎉 LÀM TỐT LẮM! Kỹ năng làm bài của bạn rất ấn tượng!";
+      }
+
+      document.getElementById('comment-text').innerText = comment;
+      document.getElementById('result-modal').classList.add('show');
+      triggerConfetti();
+    }
+
+    function closeModal() {
+      document.getElementById('result-modal').classList.remove('show');
+    }
+
+    function findQuestion(qId) {
+      for (let pKey in passagesData) {
+        const found = passagesData[pKey].questions.find(q => q.id === qId);
+        if (found) return found;
+      }
+      return null;
+    }
+
+    function cleanStr(str) {
+      return str.replace(/[^a-zA-Z0-9]/g, '');
+    }
+
+    function escapeQuotes(str) {
+      return str.replace(/'/g, "\\'");
+    }
+
+    window.onload = () => {
+      renderLeftPane(1);
+      renderRightPane(1);
+      updateProgressBar();
+    };
+  </script>
+</body>
+</html>
